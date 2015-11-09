@@ -1,2 +1,2 @@
 # AlmaToolBoxCE
-AlmaToolBox COmmunity Edition
+AlmaToolBox Community Edition
