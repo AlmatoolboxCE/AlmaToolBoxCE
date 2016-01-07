@@ -1,9 +1,9 @@
 # AlmaToolBoxCE
 AlmaToolBox Community Edition
 
-AlmaToolBox Community Edition è la versione Community di AlmaToolBox, la soluzione di integrazione in ambito ALM e DevOps confluita in questo progetto Open Source. Owner del progetto è la società [Almaviva] che partecipa in modo attivo a tale comunità Open Source. Il progetto mira a rendere maggiormente fruibili le singole offerte di prodotti per l'ALM ed il DevOps integrandole opportunamente. Alla data di avvio di questo progetto OS sono disponibili moduli per l'enanchement di MS_TFS e per la sua integrazione con vari middleware sia Open Source che proprietari.
-
-Il progetto è ospitato su GitHub per tutti gli sviluppi Java e Ruby, mentre per le componenti c# od xml relative a MS-TFS è ospitato su Codeplex. Il file readme.txt all'interno del source code riporta l'elenco dei singoli sottoprogetti.
+AlmaToolBox Community Edition is the Community version of the integration solution for ALM and DevOps, which is now part of this Open Source project.
+The project scope is to make any individual offering of products for ALM and DevOps as available as possible, by ad hoc integration processes. At the OS project start, several modules for MS-TFS enhancement were made available, in order to allow integration with different middleware, both Open Source and proprietary.
+The project is entirely hosted on GitHub ; for the items relating to add-ons and customizations MS TFS and Visual Studio , there are references on Codeplex.
 
 
 WE WANT YOU:
