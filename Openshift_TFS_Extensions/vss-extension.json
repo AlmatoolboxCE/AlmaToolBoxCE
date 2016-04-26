@@ -1,0 +1,36 @@
+{
+    "manifestVersion": 1,
+    "id": "oc-deploy-tasks",
+    "name": "Openshift Deploy Tools",
+    "version": "0.1.1",
+    "publisher": "almatoolbox",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Tools for deploying to Red Hat Openshift",
+    "categories": [
+        "Build and release"
+    ],
+    "icons": {
+        "default": "extension-icon.png"        
+    },
+    "files": [
+        {
+            "path": "oc3promotionTask"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "oc3promotionTask-1",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "oc3promotionTask"
+            }
+        }
+    ]
+}
