@@ -1,8 +1,8 @@
 {
   "id": "8ed74860-0bad-11e6-a0ed-8d65602cc06d",
   "name": "RedHat Openshift 3 Promotion task",
-  "friendlyName": "Red Hat Openshift promote",
-  "description": "promotes a build to a target openshift environment",
+  "friendlyName": "Openshift promote",
+  "description": "Pulls and pushes an image from a source oc to target",
   "author": "almatoolbox",
   "helpMarkDown": "[More Information](https://www.openshift.com/)",
   "category": "Deploy",

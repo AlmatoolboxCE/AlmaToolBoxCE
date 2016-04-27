@@ -1,11 +1,11 @@
 {
   "id": "24728fe0-0c55-11e6-aae6-7798211144be",
   "name": "oc3tagTask",
-  "friendlyName": "oc tag executor",
-  "description": "tags an image to be promoted",
+  "friendlyName": "Openshift tag",
+  "description": "Tags an image to be promoted",
   "author": "almatoolbox",
   "helpMarkDown": "Replace with markdown to show in help",
-  "category": "Utility",
+  "category": "Deploy",
   "visibility": [
     "Build",
     "Release"
