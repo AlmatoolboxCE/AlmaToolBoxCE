@@ -19,6 +19,12 @@
     "files": [
         {
             "path": "oc3promotionTask"
+        },
+		{
+            "path": "oc3tagTask"
+        },
+		{
+            "path": "oc3buildTask"
         }
     ],
     "contributions": [
@@ -30,6 +36,26 @@
             ],
             "properties": {
                 "name": "oc3promotionTask"
+            }
+        },
+		{
+            "id": "oc3tagTask-1",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "oc3tagTask"
+            }
+        },
+		{
+            "id": "oc3buildTask-1",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "oc3buildTask"
             }
         }
     ]
