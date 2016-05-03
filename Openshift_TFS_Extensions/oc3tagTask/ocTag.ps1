@@ -5,9 +5,9 @@ param (
 	[string]$password,
 	[string]$clientCert,
 	[string]$skipTls,
-	[string]$buildconfig,
-    [string]$token,
-    [string]$namespace
+	[string]$source,
+    [string]$destination,
+    [string]$sourceType
 )
 
 $oldVerbose = $VerbosePreference
@@ -17,8 +17,8 @@ Write-Verbose "Entering oc.ps1"
 
 Write-Verbose "ocExe = $ocExe"
 Write-Verbose "server = $server"
-Write-Verbose "buildconfig = $buildconfig"
-Write-Verbose "token = $token"
+Write-Verbose "source = $source"
+Write-Verbose "destination = $destination"
 Write-Verbose "namespace = $namespace"
 Write-Verbose "skipTls = $skipTls"
 $clientCertEmpty = !$clientCert
@@ -35,14 +35,14 @@ if (-not (Test-Path -Path $ocExe -PathType Leaf)) {
     throw 'Openshift client not installed in the provided location.'
 }
 
-if(!$buildconfig)
+if(!$source)
 {
-    throw (Get-LocalizedString -Key "Buildconfig parameter is not set")
+    throw (Get-LocalizedString -Key "Source parameter is not set")
 }
 
-if(!$token)
+if(!$destination)
 {
-    throw (Get-LocalizedString -Key "Token parameter is not set")
+    throw (Get-LocalizedString -Key "Destination parameter is not set")
 }
 
 if(!$namespace)
@@ -55,13 +55,6 @@ if(!$clientCert -and (!$username -or !$password))
     throw (Get-LocalizedString -Key "Either clientCert or username and password must be set")
 }
 
-if(!(Test-Path $token -PathType Leaf))
-{
-    throw ("$token does not exist");
-}
-
-Write-Verbose "Reading token content"
-$tokenContent = [IO.File]::ReadAllText("$token").Trim()
 
 Write-Verbose "Constructing login parameters"
 $loginCredentials = If (!$clientCert) {
@@ -69,6 +62,14 @@ $loginCredentials = If (!$clientCert) {
 } Else {
 	'--certificate-authority="$clientCert"'
 } 
+
+Write-Verbose "Constructing source Type parameter"
+
+$sourceTypeStr = if(!$sourceType) {
+	''
+} Else {
+	'--source=$sourceType'
+}
 
 Write-Verbose "Logging in"
 & $ocExe login $server $loginCredentials --insecure-skip-tls-verify=$skipTls 2>&1
@@ -78,8 +79,8 @@ if (-not $?) {
 				exit 100 
 }
 
-Write-Verbose "Calling start-build"
-& $ocExe --token="$tokenContent" start-build $buildconfig --follow -n $namespace 2>&1 
+Write-Verbose "Calling tag"
+& $ocExe tag $sourceTypeStr $source $destination 2>&1 
 
 if (-not $?) {
                 Write-Error 'oc.exe failed. Exiting oc.ps1'

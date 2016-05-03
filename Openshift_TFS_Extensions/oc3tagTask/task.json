@@ -2,9 +2,9 @@
   "id": "24728fe0-0c55-11e6-aae6-7798211144be",
   "name": "oc3tagTask",
   "friendlyName": "Openshift tag",
-  "description": "Tags an image to be promoted",
+  "description": "Tags an image to be promoted in target environment",
   "author": "almatoolbox",
-  "helpMarkDown": "Replace with markdown to show in help",
+  "helpMarkDown": "Tags an image to be promoted in target environment",
   "category": "Deploy",
   "visibility": [
     "Build",
@@ -17,32 +17,89 @@
     "Patch": "0"
   },
   "minimumAgentVersion": "1.83.0",
-  "instanceNameFormat": "oc3TagTask $(message)",
+  "instanceNameFormat": "oc tag on $(target)",
+  "groups": [
+        {
+            "name":"connection",
+            "displayName":"Openshift Connection",
+            "isExpanded":true
+        }
+    ],
   "inputs": [
-    {
-      "name": "cwd",
+	{
+      "name": "ocExe",
       "type": "filePath",
-      "label": "Working Directory",
+      "label": "Client executable",
+      "defaultValue": "C:\\Program Files\\oc-3.1.1.6-windows\\atomic-openshift\\windows\\oc.exe",
+      "required": true,
+	  "groupName":"connection",
+      "helpMarkDown": "Absolute path to the oc executable."
+    },
+	{
+      "name": "server",
+      "type": "string",
+      "label": "Target server",
+      "defaultValue": "",
+      "required": true,
+	  "groupName":"connection",
+      "helpMarkDown": "Remote url to target environment"
+    },
+	{
+      "name": "username",
+      "type": "string",
+      "label": "Username",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "Current working directory when oc3TagTask is run."
+	  "groupName":"connection",
+      "helpMarkDown": "Credentials to target environment"
+    },
+	{
+      "name": "password",
+      "type": "string",
+      "label": "Password",
+      "defaultValue": "",
+      "required": false,
+	  "groupName":"connection",
+      "helpMarkDown": "Credentials to target environment"
+    },
+	{
+      "name": "clientCert",
+      "type": "filePath",
+      "label": "Client certificate",
+      "defaultValue": "",
+      "required": false,
+	  "groupName":"connection",
+      "helpMarkDown": "Absolute or relative path to client certificate"
+    },
+	{
+      "name": "skipTls",
+      "type": "boolean",
+      "label": "Skip tls verify",
+      "defaultValue": "false",
+      "required": false,
+	  "groupName":"connection",
+      "helpMarkDown": "Tells oc to insecurely skip tls verification"
     },
     {
-      "name": "msg",
+      "name": "source",
       "type": "string",
-      "label": "Message",
-      "defaultValue": "Hello World",
+      "label": "Source image",
+      "defaultValue": "",
       "required": true,
-      "helpMarkDown": "Message to echo out"
+      "helpMarkDown": "Source image to be tagged."
+    },
+    {
+      "name": "target",
+      "type": "string",
+      "label": "Target",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Target environment."
     }
   ],
   "execution": {
-    "Node": {
-      "target": "sample.js",
-      "argumentFormat": ""
-    },
     "PowerShell": {
-      "target": "$(currentDirectory)\\sample.ps1",
+      "target": "$(currentDirectory)\\ocTag.ps1",
       "argumentFormat": "",
       "workingDirectory": "$(currentDirectory)"
     }

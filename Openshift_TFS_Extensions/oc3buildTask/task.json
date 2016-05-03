@@ -4,7 +4,7 @@
   "friendlyName": "Openshift build starter",
   "description": "Starts a new build in the target environment with provided parameters",
   "author": "almatoolbox",
-  "helpMarkDown": "Replace with markdown to show in help",
+  "helpMarkDown": "Starts a new build in the target environment with provided parameters",
   "category": "Deploy",
   "visibility": [
     "Build",
