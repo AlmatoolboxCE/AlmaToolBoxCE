@@ -63,15 +63,13 @@ if(!(Test-Path $token -PathType Leaf))
 Write-Verbose "Reading token content"
 $tokenContent = [IO.File]::ReadAllText("$token").Trim()
 
-Write-Verbose "Constructing login parameters"
-$loginCredentials = If (!$clientCert) {
-	'-u $username -p $password'
+Write-Verbose "Logging in"
+If (!$clientCert) {
+	& $ocExe login $server --username=$username --password=$password --insecure-skip-tls-verify=$skipTls
 } Else {
-	'--certificate-authority="$clientCert"'
+	& $ocExe login $server --certificate-authority='$clientCert' --insecure-skip-tls-verify=$skipTls
 } 
 
-Write-Verbose "Logging in"
-& $ocExe login $server $loginCredentials --insecure-skip-tls-verify=$skipTls 2>&1
 if (-not $?) {
                 Write-Error 'oc.exe failed to log in. Exiting oc.ps1'
 				$VerbosePreference = $oldVerbose

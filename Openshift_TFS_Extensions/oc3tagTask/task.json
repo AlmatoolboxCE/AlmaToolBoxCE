@@ -89,7 +89,7 @@
       "helpMarkDown": "Source image to be tagged."
     },
     {
-      "name": "target",
+      "name": "destination",
       "type": "string",
       "label": "Target",
       "defaultValue": "",
