@@ -2,24 +2,60 @@
     "manifestVersion": 1,
     "id": "oc-deploy-tasks",
     "name": "Openshift Deploy Tools",
-    "version": "0.1.1",
+    "version": "0.1.0",
     "publisher": "almatoolbox",
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
     ],    
-    "description": "Tools for deploying to Red Hat Openshift",
+    "description": "Tools for interact and deploying to Red Hat Openshift",
     "categories": [
         "Build and release"
     ],
+	"tags": [
+		"devops",
+		"redhat",
+		"deploy"
+	],
+    "screenshots": [
+        {
+            "path": "screenshots/start-build.jpg"
+        },
+        {
+            "path": "screenshots/tag.jpg"
+        }
+    ],
+    "content": {
+        "details": {
+            "path": "overview.md"
+        },
+        "license": {
+            "path": "license.md"
+        }
+    },
+	"links": {
+        "home": {
+            "uri": "www.almaviva.it"
+        }, 
+        "getstarted": {
+            "uri": "http://almatoolboxce.github.io/AlmaToolBoxCE/"
+        },
+		"learn": {
+            "uri": "http://www.almaviva.it/EN/OurOffering/Information_Technology/Pagine/AlmaToolBox.aspx"
+        },
+        "repository": {
+            "uri": "https://github.com/AlmatoolboxCE/AlmaToolBoxCE"
+        }
+    },
+    "branding": {
+        "color": "white",
+        "theme": "light"
+    },
     "icons": {
         "default": "extension-icon.png"        
     },
     "files": [
-        {
-            "path": "oc3promotionTask"
-        },
 		{
             "path": "oc3tagTask"
         },
@@ -28,16 +64,6 @@
         }
     ],
     "contributions": [
-        {
-            "id": "oc3promotionTask-1",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "oc3promotionTask"
-            }
-        },
 		{
             "id": "oc3tagTask-1",
             "type": "ms.vss-distributed-task.task",
