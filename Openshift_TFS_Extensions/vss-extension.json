@@ -24,6 +24,9 @@
         },
         {
             "path": "screenshots/tag.jpg"
+        },
+        {
+            "path": "screenshots/promote.jpg"
         }
     ],
     "content": {
@@ -39,13 +42,13 @@
             "uri": "www.almaviva.it"
         }, 
         "getstarted": {
-            "uri": "http://almatoolboxce.github.io/AlmaToolBoxCE/"
+            "uri": "http://almatoolboxce.github.io//AlmaToolBoxCE//"
         },
 		"learn": {
-            "uri": "http://www.almaviva.it/EN/OurOffering/Information_Technology/Pagine/AlmaToolBox.aspx"
+            "uri": "http://www.almaviva.it//EN//OurOffering//Information_Technology//Pagine//AlmaToolBox.aspx"
         },
         "repository": {
-            "uri": "https://github.com/AlmatoolboxCE/AlmaToolBoxCE"
+            "uri": "https://github.com//AlmatoolboxCE//AlmaToolBoxCE"
         }
     },
     "branding": {
@@ -61,6 +64,9 @@
         },
 		{
             "path": "oc3buildTask"
+        },
+		{
+            "path": "oc3promotionTask"
         }
     ],
     "contributions": [
