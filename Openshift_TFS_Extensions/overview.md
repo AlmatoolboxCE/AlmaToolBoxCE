@@ -15,8 +15,16 @@ Performs a start-build on the target project using provided namespace
 ## Image Tagger
 Tags an image
 ## Image promoter
-Forthcoming
+Pulls then pushes an image on an external Docker for production.
+It requires a Docker client machine (bridge)
+- listening on port 22 (SSH)
+- capable of connecting to your Docker Registry (which, of course, has to be exposed correctly by your Openshift environment)
+Your TFS has to
+- correctly connect via SSH to the Docker machine
+- store the machine fingerprint (connect manually and say 'yes' to ssh prompt)
 
+## Forthcoming
+Support for RSA keys for Promotion Task
 
 # License
 
